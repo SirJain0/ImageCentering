@@ -14,7 +14,7 @@
 		author,
 		description: "placeholder",
 		about: "placeholder",
-		tags: ["placeholder"],
+		tags: ["Customization", "Format: Image", "UX"],
 		version: "1.0.0",
 		min_version: "4.2.0",
 		variant: "both",
