@@ -88,25 +88,25 @@
 						width: 100%;
 						padding: 0 8px
 					}
-					
+
 					dialog#about #content {
 						margin: 24px;
 					}
                 </style>
                 ${banner ? `<div id="banner">This window can be reopened at any time from <strong>Help > About Plugins > ${name}</strong></div>` : ""}
                 <div id="content">
-                <h1 style="margin-top:-10px">${name}</h1>
-                <p>placeholder</p>
-                <div class="socials">
-                <a href="${links["website"]}" class="open-in-browser">
-                <i class="icon material-icons" style="color:#33E38E">language</i>
-                <label>By ${author}</label>
-                </a>
-                <a href="${links["discord"]}" class="open-in-browser">
-                <i class="icon fab fa-discord" style="color:#727FFF"></i>
-                <label>Discord Server</label>
-                </a>
-                </div>
+                	<h1 style="margin-top:-10px">${name}</h1>
+					<p>placeholder</p>
+					<div class="socials">
+						<a href="${links["website"]}" class="open-in-browser">
+							<i class="icon material-icons" style="color:#33E38E">language</i>
+							<label>By ${author}</label>
+						</a>
+						<a href="${links["discord"]}" class="open-in-browser">
+							<i class="icon fab fa-discord" style="color:#727FFF"></i>
+							<label>Discord Server</label>
+						</a>
+					</div>
                 </div>
             `]
 		}).show()
