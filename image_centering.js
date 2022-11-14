@@ -12,7 +12,7 @@
 		title: name,
 		icon,
 		author,
-		description: "Adds a button that centers the image view in the Image format.",
+		description: "Adds a button that centers the image view in an Image format.",
 		about: "This plugin adds a button that allows you to reset your view in the Image format.\n## How to use\nTo use this plugin, go to `Tools > Center Image View`. Make sure you are in the Image format. There will be a confirmation message displayed on-screen.\n\nPlease report any bugs or suggestions you may have.",
 		tags: ["Customization", "Format: Image", "UX"],
 		version: "1.0.0",
