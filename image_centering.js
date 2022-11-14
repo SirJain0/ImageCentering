@@ -27,7 +27,6 @@
 				description: "Center the view of your image",
 				icon: "center_focus_strong",
 				click: function() {
-                    Settings.saveLocalStorages();
 					Blockbench.showQuickMessage("Centered!", 2000)
 				}
 			})
