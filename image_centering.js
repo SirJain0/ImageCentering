@@ -66,28 +66,32 @@
 			buttons: [],
 			lines: [`
                 <style>
-                dialog#about .dialog_title {
-                padding-left: 0;
-                display: flex;
-                align-items: center;
-                gap: 10px;
-                }
-                dialog#about .dialog_content {
-                text-align: left!important;
-                margin: 0!important;
-                }
-                dialog#about .socials {
-                padding: 0!important;
-                }
-                dialog#about #banner {
-                background-color: var(--color-accent);
-                color: var(--color-accent_text);
-                width: 100%;
-                padding: 0 8px
-                }
-                dialog#about #content {
-                margin: 24px;
-                }
+					dialog#about .dialog_title {
+						padding-left: 0;
+						display: flex;
+						align-items: center;
+						gap: 10px;
+					}
+
+					dialog#about .dialog_content {
+						text-align: left!important;
+						margin: 0!important;
+					}
+
+					dialog#about .socials {
+						padding: 0!important;
+					}
+
+					dialog#about #banner {
+						background-color: var(--color-accent);
+						color: var(--color-accent_text);
+						width: 100%;
+						padding: 0 8px
+					}
+					
+					dialog#about #content {
+						margin: 24px;
+					}
                 </style>
                 ${banner ? `<div id="banner">This window can be reopened at any time from <strong>Help > About Plugins > ${name}</strong></div>` : ""}
                 <div id="content">
