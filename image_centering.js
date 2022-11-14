@@ -12,7 +12,7 @@
 		title: name,
 		icon,
 		author,
-		description: "placeholder",
+		description: "Adds a button that centers the image view in the Image format.",
 		about: "placeholder",
 		tags: ["Customization", "Format: Image", "UX"],
 		version: "1.0.0",
