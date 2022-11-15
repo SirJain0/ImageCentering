@@ -30,10 +30,12 @@
 					description: 'Center the view of your image',
 					condition: () => Format?.id == "image",
 					click() {
+						// == TEMPORARY MARGINS ==
 						// margin-top: 334px;
 						// margin-right: 387px;
 						// margin-bottom: 334px;
 						// margin-left: 387px;
+
 						const viewport = document.getElementById("uv_frame")
 						viewport.style.setProperty("margin-top", "334px", "important");
 						viewport.style.setProperty("margin-right", "387px", "important");
