@@ -22,20 +22,37 @@
 		onload() {
 			addAboutButton()
 
-			const action = new Action("image_center_button", {
+			 new Action("image_center_button", {
 				name: "Center Image View",
 				description: "Center the view of your image",
 				icon: "center_focus_strong",
-				click: function() {
-					Blockbench.showQuickMessage("Centered!", 2000)
+				click() {
+					// margin-top: 334px;
+					// margin-right: 387px;
+					// margin-bottom: 334px;
+    				// margin-left: 387px;
+					const viewport = document.getElementById("uv_frame")
+					viewport.style.setProperty("margin-top", "334px", "important");
+					viewport.style.setProperty("margin-right", "387px", "important");
+					viewport.style.setProperty("margin-bottom", "334px", "important");
+					viewport.style.setProperty("margin-left", "387px", "important");
+					Blockbench.showQuickMessage("Centered!", 2000);
 				}
 			})
 
-			MenuBar.addAction(action, "tools")
+			MenuBar.addAction({
+				id: "image_center",
+				name: "Center Image Viewport",
+				children: [
+					'image_center_button'
+				],
+				icon: "center_focus_strong",
+				condition: () => Format?.id == "image"
+			}, "tools")
 		},
 		onunload() {
 			aboutAction.delete()
-			action.delete()
+			MenuBar.removeAction("image_center")
 			MenuBar.removeAction(`help.about_plugins.about_${id}`)
 		}
 	})
