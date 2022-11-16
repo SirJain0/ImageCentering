@@ -21,7 +21,7 @@
 		oninstall: () => showAbout(true),
 		onload() {
 			addAboutButton();
-			Blockbench.showQuickMessage("Successfully installed Image Centering plugin!", 2000)
+			Blockbench.showQuickMessage("Successfully installed Image Centering plugin!", 2000);
 			const button = new Action("image_center_button", {
 				name: 'Center Image Viewport',
 				icon: 'center_focus_strong',
@@ -40,7 +40,7 @@
 			aboutAction.delete();
 			button.delete();
 			MenuBar.removeAction(`help.about_plugins.about_${id}`);
-			Blockbench.showQuickMessage("Uninstalled Image Centering plugin", 2000)
+			Blockbench.showQuickMessage("Uninstalled Image Centering plugin", 2000);
 		}
 	})
 
