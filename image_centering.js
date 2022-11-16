@@ -21,25 +21,23 @@
 		oninstall: () => showAbout(true),
 		onload() {
 			addAboutButton()
+			const button = new Action("image_center_button", {
+				name: 'Center Image View',
+				icon: 'center_focus_strong',
+				description: 'Center the view of your image',
+				condition: () => Format?.id == "image",
+				click() {
+					CenterViewport()
+					SetZoom()
+				}
+			})
 
-			MenuBar.addAction(
-				new Action({
-					id: 'image_center_button',
-					name: 'Center Image View',
-					icon: 'center_focus_strong',
-					description: 'Center the view of your image',
-					condition: () => Format?.id == "image",
-					click() {
-						CenterViewport()
-						SetZoom()
-					}
-				}), 'tools'
-			)
+			Toolbars.brush.add(button)
 		},
 		onunload() {
-			aboutAction.delete()
-			MenuBar.removeAction("tools.image_center_button")
-			MenuBar.removeAction(`help.about_plugins.about_${id}`)
+			aboutAction.delete();
+			button.delete();
+			MenuBar.removeAction(`help.about_plugins.about_${id}`);
 		}
 	})
 
