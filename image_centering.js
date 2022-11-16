@@ -1,9 +1,9 @@
 (async function() {
-	let aboutAction
-	const id = "image_centering"
-	const name = "Image Centering"
-	const icon = "center_focus_strong"
-	const author = "SirJain"
+	let aboutAction;
+	const id = "image_centering";
+	const name = "Image Centering";
+	const icon = "center_focus_strong";
+	const author = "SirJain";
 	const links = {
 		website: "https://twitter.com/SirJain2",
 		discord: "https://discord.gg/wM4CKTbFVN"
@@ -20,7 +20,7 @@
 		variant: "both",
 		oninstall: () => showAbout(true),
 		onload() {
-			addAboutButton()
+			addAboutButton();
 			const button = new Action("image_center_button", {
 				name: 'Center Image View',
 				icon: 'center_focus_strong',
@@ -32,7 +32,7 @@
 				}
 			})
 
-			Toolbars.brush.add(button)
+			Toolbars.brush.add(button);
 		},
 		onunload() {
 			aboutAction.delete();
@@ -55,31 +55,31 @@
 
 	function SetZoom(zoom) {
 		let max_zoom = Math.round((UVEditor.vue.texture ? UVEditor.vue.texture.height : Project.texture_width) * 32 / UVEditor.width);
-		zoom = Math.clamp(zoom, UVEditor.height > 800 ? 0.2 : 0.85, Math.clamp(max_zoom, 16, 64))
+		zoom = Math.clamp(zoom, UVEditor.height > 800 ? 0.2 : 0.85, Math.clamp(max_zoom, 16, 64));
 		UVEditor.vue.zoom = zoom;
 		Project.uv_viewport.zoom = UVEditor.zoom;
 		Vue.nextTick(() => {
-			if (Painter.selection.overlay) UVEditor.updatePastingOverlay()
+			if (Painter.selection.overlay) UVEditor.updatePastingOverlay();
 		})
 		return UVEditor;
 	}
 
 	function addAboutButton() {
-		let about = MenuBar.menus.help.structure.find(e => e.id === "about_plugins")
+		let about = MenuBar.menus.help.structure.find(e => e.id === "about_plugins");
 		if (!about) {
 			about = new Action("about_plugins", {
 				name: "About Plugins...",
 				icon: "info",
 				children: []
 			})
-			MenuBar.addAction(about, "help")
+			MenuBar.addAction(about, "help");
 		}
 		aboutAction = new Action(`about_${id}`, {
 			name: `About ${name}...`,
 			icon,
 			click: () => showAbout()
 		})
-		about.children.push(aboutAction)
+		about.children.push(aboutAction);
 	}
 
 	function showAbout(banner) {
