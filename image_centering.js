@@ -30,18 +30,8 @@
 					description: 'Center the view of your image',
 					condition: () => Format?.id == "image",
 					click() {
-						// == TEMPORARY MARGINS ==
-						// margin-top: 334px;
-						// margin-right: 387px;
-						// margin-bottom: 334px;
-						// margin-left: 387px;
-
-						const viewport = document.getElementById("uv_frame")
-						viewport.style.setProperty("margin-top", "334px", "important");
-						viewport.style.setProperty("margin-right", "387px", "important");
-						viewport.style.setProperty("margin-bottom", "334px", "important");
-						viewport.style.setProperty("margin-left", "387px", "important");
-						Blockbench.showQuickMessage("Centered!", 2000);
+						CenterViewport()
+						SetZoom()
 					}
 				}), 'tools'
 			)
@@ -52,6 +42,29 @@
 			MenuBar.removeAction(`help.about_plugins.about_${id}`)
 		}
 	})
+
+	function CenterViewport() {
+		let uv_viewport = UVEditor.vue.$refs.viewport;
+		if (!uv_viewport) return;
+		UVEditor.setZoom(Project.uv_viewport.zoom);
+		Vue.nextTick(() => {
+			uv_viewport.scrollLeft = Project.uv_viewport.offset[0] * UVEditor.vue.inner_width + UVEditor.width/2;
+			uv_viewport.scrollTop = Project.uv_viewport.offset[1] * UVEditor.vue.inner_height + UVEditor.height/2;
+		})
+
+		Blockbench.showQuickMessage("Centered!", 2000);
+	}
+
+	function SetZoom(zoom) {
+		let max_zoom = Math.round((UVEditor.vue.texture ? UVEditor.vue.texture.height : Project.texture_width) * 32 / UVEditor.width);
+		zoom = Math.clamp(zoom, UVEditor.height > 800 ? 0.2 : 0.85, Math.clamp(max_zoom, 16, 64))
+		UVEditor.vue.zoom = zoom;
+		Project.uv_viewport.zoom = UVEditor.zoom;
+		Vue.nextTick(() => {
+			if (Painter.selection.overlay) UVEditor.updatePastingOverlay()
+		})
+		return UVEditor;
+	}
 
 	function addAboutButton() {
 		let about = MenuBar.menus.help.structure.find(e => e.id === "about_plugins")
