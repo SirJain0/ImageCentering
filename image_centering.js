@@ -5,7 +5,7 @@
 	const icon = "center_focus_strong";
 	const author = "SirJain";
 	const links = {
-		website: "https://twitter.com/SirJain2",
+		twitter: "https://twitter.com/SirJain2",
 		discord: "https://discord.gg/wM4CKTbFVN"
 	}
 	Plugin.register(id, {
@@ -119,11 +119,17 @@
                 </style>
                 ${banner ? `<div id="banner">This window can be reopened at any time from <strong>Help > About Plugins > ${name}</strong></div>` : ""}
                 <div id="content">
-                	<h1 style="margin-top:-10px">${name}</h1>
-					<p>placeholder</p>
+					<h1 style="margin-top:-10px">${name}</h1>
+					<p>Adds a button that centers the image viewport in an Image format.</p>
+					<h4>Worth noting:</h4>
+					<p>- You need to be in the Image format for this plugin to work.</p>
+					<p>- You can add or remove the button from the toolbar using the<b> Customize Toolbar</b> button.</p>
+					<h4>How to use:</h4>
+					<p>To use this plugin, go to the brush toolbar (top of the image mode) and click the <b>Center Image Viewport</b> button. There will be a confirmation message displayed on-screen once you center the viewport.</p>
+					<br>
 					<div class="socials">
-						<a href="${links["website"]}" class="open-in-browser">
-							<i class="icon material-icons" style="color:#33E38E">language</i>
+						<a href="${links["twitter"]}" class="open-in-browser">
+							<i class="fa-brands fa-twitter" style="color:#1DA1F2"></i>
 							<label>By ${author}</label>
 						</a>
 						<a href="${links["discord"]}" class="open-in-browser">
