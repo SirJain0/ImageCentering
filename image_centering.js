@@ -29,6 +29,7 @@
 				click() {
 					CenterViewport()
 					SetZoom()
+					Blockbench.showQuickMessage("Centered viewport!", 2000)
 				}
 			})
 
@@ -49,8 +50,6 @@
 			uv_viewport.scrollLeft = Project.uv_viewport.offset[0] * UVEditor.vue.inner_width + UVEditor.width/2;
 			uv_viewport.scrollTop = Project.uv_viewport.offset[1] * UVEditor.vue.inner_height + UVEditor.height/2;
 		})
-
-		Blockbench.showQuickMessage("Centered!", 2000);
 	}
 
 	function SetZoom(zoom) {
