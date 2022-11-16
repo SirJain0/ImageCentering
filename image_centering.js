@@ -12,8 +12,8 @@
 		title: name,
 		icon,
 		author,
-		description: "Adds a button that centers the image view in an Image format.",
-		about: "This plugin adds a button that allows you to reset your view in the Image format.\n## How to use\nTo use this plugin, go to `Tools > Center Image View`. Make sure you are in the Image format. There will be a confirmation message displayed on-screen.\n\nPlease report any bugs or suggestions you may have.",
+		description: "Adds a button that centers the image viewport in an Image format.",
+		about: "This plugin adds a button that allows you to reset your viewport in the Image format.\n## How to use\nTo use this plugin, go to `Tools > Center Image Viewport`. Make sure you are in the Image format. There will be a confirmation message displayed on-screen.\n\nPlease report any bugs or suggestions you may have.",
 		tags: ["Customization", "Format: Image", "UX"],
 		version: "1.0.0",
 		min_version: "4.2.0",
@@ -22,9 +22,9 @@
 		onload() {
 			addAboutButton();
 			const button = new Action("image_center_button", {
-				name: 'Center Image View',
+				name: 'Center Image Viewport',
 				icon: 'center_focus_strong',
-				description: 'Center the view of your image',
+				description: 'Center the viewport of your image',
 				condition: () => Format?.id == "image",
 				click() {
 					CenterViewport()
