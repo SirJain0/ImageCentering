@@ -4,6 +4,7 @@
 	const name = "Image Centering";
 	const icon = "center_focus_strong";
 	const author = "SirJain";
+	let button;
 	const links = {
 		twitter: "https://twitter.com/SirJain2",
 		discord: "https://discord.gg/wM4CKTbFVN"
@@ -22,7 +23,7 @@
 		onload() {
 			addAboutButton();
 			Blockbench.showQuickMessage("Successfully installed Image Centering plugin!", 2000);
-			const button = new Action("image_center_button", {
+			button = new Action("image_center_button", {
 				name: 'Center Image Viewport',
 				icon: 'center_focus_strong',
 				description: 'Center the viewport of your image',
