@@ -146,7 +146,7 @@
 					<p>- You need to be in the Image format for this plugin to work.</p>
 					<p>- You can add or remove the button from the toolbar using the<b> Customize Toolbar</b> button.</p>
 					<h4>How to use:</h4>
-					<p>To use this plugin, go to the brush toolbar (top of the image mode) and click the <b>Center Image Viewport</b> button. There will be a confirmation message displayed on-screen once you center the viewport.</p>
+					<p>To use this plugin, go to the brush toolbar (top of the image mode) and click the <b>Center Image Viewport</b> button. There will be a confirmation message displayed on-screen once you center the viewport. You can also use the <b>c</b> keybind.</p>
 					<br>
 					<div class="socials">
 						<a href="${links["twitter"]}" class="open-in-browser">
