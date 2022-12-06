@@ -31,11 +31,7 @@
 				icon: 'center_focus_strong',
 				description: 'Center the viewport of your image',
 				condition: () => Format?.id == "image",
-				click() {
-					CenterViewport()
-					SetZoom()
-					Blockbench.showQuickMessage("Centered viewport!", 2000)
-				}
+				click: () => Center()
 			})
 
 			Toolbars.brush.add(button);
@@ -54,14 +50,18 @@
 		
 		if (Format?.id === "image") {
 			if (keyName === "c") {
-				CenterViewport()
-				SetZoom()
-				Blockbench.showQuickMessage("Centered viewport!", 2000)
+				Center();
 			}
 		}
 	}
 
-	function CenterViewport() {
+	function Center() {
+		SetViewport();
+		SetZoom();			
+		Blockbench.showQuickMessage("Centered viewport!", 2000);
+	}
+
+	function SetViewport() {
 		let uv_viewport = UVEditor.vue.$refs.viewport;
 		if (!uv_viewport) return;
 		UVEditor.setZoom(Project.uv_viewport.zoom);
