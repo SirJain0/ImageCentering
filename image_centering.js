@@ -110,7 +110,7 @@
 			width: 780,
 			buttons: [],
 			lines: [`
-                <style>
+				<style>
 					dialog#about .dialog_title {
 						padding-left: 0;
 						display: flex;
@@ -137,9 +137,9 @@
 					dialog#about #content {
 						margin: 24px;
 					}
-                </style>
-                ${banner ? `<div id="banner">This window can be reopened at any time from <strong>Help > About Plugins > ${name}</strong></div>` : ""}
-                <div id="content">
+				</style>
+				${banner ? `<div id="banner">This window can be reopened at any time from <strong>Help > About Plugins > ${name}</strong></div>` : ""}
+				<div id="content">
 					<h1 style="margin-top:-10px">${name}</h1>
 					<p>Adds a button that centers the image viewport in an Image format.</p>
 					<h4>Worth noting:</h4>
@@ -158,7 +158,7 @@
 							<label>Discord Server</label>
 						</a>
 					</div>
-                </div>
+				</div>
             `]
 		}).show()
 		$("dialog#about .dialog_title").html(`
