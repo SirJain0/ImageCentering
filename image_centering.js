@@ -9,6 +9,7 @@
 		twitter: "https://twitter.com/SirJain2",
 		discord: "https://discord.gg/wM4CKTbFVN"
 	}
+
 	Plugin.register(id, {
 		title: name,
 		icon,
@@ -16,13 +17,15 @@
 		description: "Adds a button that centers the image viewport in an Image format.",
 		about: "This plugin adds a button that allows you to reset your viewport in the Image format.\n## How to use\nTo use this plugin, go to the brush toolbar (top of the image mode) and click the `Center Image Viewport` button. If it doesn't show up, make sure you are in the Image format. If you are, you can add the tool using the `Customize Toolbar` option. There will be a confirmation message displayed on-screen once you center the viewport.\n\nPlease report any bugs or suggestions you may have.",
 		tags: ["Format: Image", "UX"],
-		version: "1.0.0",
+		version: "1.1.0",
 		min_version: "4.4.0",
 		variant: "both",
 		oninstall: () => showAbout(true),
 		onload() {
 			addAboutButton();
 			Blockbench.showQuickMessage("Successfully installed Image Centering plugin!", 2000);
+			document.addEventListener("keydown", keyAction)
+			
 			button = new Action("image_center_button", {
 				name: 'Center Image Viewport',
 				icon: 'center_focus_strong',
@@ -42,8 +45,21 @@
 			button.delete();
 			MenuBar.removeAction(`help.about_plugins.about_${id}`);
 			Blockbench.showQuickMessage("Uninstalled Image Centering plugin", 2000);
+			document.removeEventListener("keydown", keyAction)
 		}
 	})
+
+	function keyAction(event) {
+		const keyName = event.key;
+		
+		if (Format?.id === "image") {
+			if (keyName === "c") {
+				CenterViewport()
+				SetZoom()
+				Blockbench.showQuickMessage("Centered viewport!", 2000)
+			}
+		}
+	}
 
 	function CenterViewport() {
 		let uv_viewport = UVEditor.vue.$refs.viewport;
@@ -63,6 +79,7 @@
 		Vue.nextTick(() => {
 			if (Painter.selection.overlay) UVEditor.updatePastingOverlay();
 		})
+
 		return UVEditor;
 	}
 
@@ -76,11 +93,13 @@
 			})
 			MenuBar.addAction(about, "help");
 		}
+
 		aboutAction = new Action(`about_${id}`, {
 			name: `About ${name}...`,
 			icon,
 			click: () => showAbout()
 		})
+
 		about.children.push(aboutAction);
 	}
 
@@ -143,8 +162,8 @@
             `]
 		}).show()
 		$("dialog#about .dialog_title").html(`
-    <i class="icon material-icons">${icon}</i>
-    ${name}
-    `)
+    		<i class="icon material-icons">${icon}</i>
+    		${name}
+    	`)
 	}
 })()
