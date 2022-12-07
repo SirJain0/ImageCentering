@@ -50,9 +50,7 @@
 		const keyName = event.key;
 		
 		if (Format?.id === "image") {
-			if (keyName === "c") {
-				Center();
-			}
+			if (keyName === "c") Center();
 		}
 	}
 
