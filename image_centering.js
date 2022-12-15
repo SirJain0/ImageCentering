@@ -48,7 +48,7 @@
 	function center() {
 		setViewport();
 		setZoom();			
-		Blockbench.showQuickMessage("Centered viewport!", 2000);
+		Blockbench.showQuickMessage("Centered viewport!", 1500);
 	}
 
 	// Resets the viewport position
