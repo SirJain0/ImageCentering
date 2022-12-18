@@ -35,9 +35,6 @@
 
 			Toolbars.brush.add(button);
 		},
-		oninstall() {
-			Blockbench.showQuickMessage("Successfully installed Image Centering plugin!", 2000);
-		},
 		onunload() {
 			aboutAction.delete();
 			button.delete();
